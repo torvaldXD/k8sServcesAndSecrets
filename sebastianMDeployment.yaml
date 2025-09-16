@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: treasure-sebastianM
+  name: treasure-marulanda
   namespace: treasure-hunt
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: treasure-sebastianM
+      app: treasure-marulanda
   template:
     metadata:
       labels:
-        app: treasure-sebastianM
+        app: treasure-marulanda
     spec:
       containers:
         - name: web
@@ -20,27 +20,27 @@ spec:
             - containerPort: 80
           env:
             - name: TITLE
-              value: "Treasure Hunt — Sebastian M"
+              value: "Treasure Hunt — Marulanda"
             - name: STUDENT
-              value: "SebastianM"
+              value: "marulanda"
             - name: SALT
               value: "DS3univalle"
             - name: KEY_HASH
-              value: "2fabebe975307ab963503571763872435066de69af7e236dee117f7933c1877c"
+              value: "3598f3ece76d07b86c16ee55d4610ac74943d0ed5b10574651d7ef801d257377"
             - name: CLUE
               valueFrom:
                 secretKeyRef:
-                  name: sebastianM-clue
+                  name: marulanda-clue
                   key: CLUE
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: treasure-sebastianM
+  name: treasure-marulanda
   namespace: treasure-hunt
 spec:
   selector:
-    app: treasure-sebastianM
+    app: treasure-marulanda
   ports:
     - name: http
       port: 80
